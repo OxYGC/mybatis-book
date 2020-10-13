@@ -72,6 +72,7 @@ public class ComplexQueryExample {
     @Test
     public void testOne2ManyQuery() {
         User user = userMapper.getUserByIdFull(1L);
+        System.out.println(user);
     }
 
     @Test
