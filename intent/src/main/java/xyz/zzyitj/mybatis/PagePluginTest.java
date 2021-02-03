@@ -48,6 +48,22 @@ public class PagePluginTest {
         query.setFull(true);
         List<UserEntity> users = userMapper.getUserPageable(query);
         System.out.println("总数据量：" + query.getTotalCount() + ",总页数："
-                + query.getTotalPage()+ "，当前查询数据：" + JSON.toJSONString(users));
+                + query.getTotalPage() + "，当前查询数据：" + JSON.toJSONString(users));
+    }
+
+    @Test
+    public void testInserUser() {
+        UserEntity userEntity = new UserEntity();
+        userEntity.setName("intent");
+        userEntity.setPassword("intent");
+        System.out.println(userMapper.insertUser(userEntity));
+        System.out.println(userEntity);
+        userEntity.setId(null);
+        userEntity.setName("hhh");
+        System.out.println(userMapper.updateUser(userEntity));
+        System.out.println(userEntity);
+        userEntity.setId(null);
+        System.out.println(userMapper.deleteUser(userEntity));
+        System.out.println(userEntity);
     }
 }
